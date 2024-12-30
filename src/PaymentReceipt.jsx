@@ -54,7 +54,9 @@ const PaymentReceipt = () => {
             SADA<span className="text-[#38597e]">PAY</span>
           </div>
         </div>
-        <button className="text-[#f77e68] font-medium text-sm ml-12">Share</button>
+        <button className="text-[#f77e68] font-medium text-sm ml-12">
+          Share
+        </button>
       </div>
 
       {/* Receipt Card */}
@@ -102,7 +104,7 @@ const PaymentReceipt = () => {
           </p>
           <p className="mb-2">
             <p className="font-medium text-[#7a869a]">Receiver's Account:</p>{" "}
-            Mobilink Microfinance Bank (MMBL) *8212
+            Mobilink Microfinance Bank (MMBL) *5426
           </p>
           <p className="mb-2">
             <p className="font-medium text-[#7a869a]">Reference Number:</p>{" "}
@@ -118,7 +120,9 @@ const PaymentReceipt = () => {
           className="w-80 p-4 flex bg-[#f77e68] text-white items-center justify-between mx-4 rounded-lg text-lg font-bold"
         >
           Close
-          <span className="ml-24">{<X className="font-semibold text-lg" />}</span>
+          <span className="ml-24">
+            {<X className="font-semibold text-lg" />}
+          </span>
         </button>
       </div>
     </div>
