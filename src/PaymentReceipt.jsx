@@ -63,11 +63,11 @@ const PaymentReceipt = () => {
       <div className="w-[80%] h-[450px] bg-white rounded-2xl p-6 z-10 shadow-lg relative">
         {/* Status Icon */}
         <div
-          className={`absolute -top-12 left-1/2 transform -translate-x-1/2 transition-transform duration-2000 ease-in-out ${
+          className={`absolute -top-6 left-1/2 transform -translate-x-1/2 transition-transform  ${
             isTransitioning ? "translate-y-4" : "translate-y-0"
           }`}
         >
-          <div className="bg-[#f77e68] text-white text-3xl rounded-full h-24 w-24 flex items-center justify-center shadow-md">
+          <div className="bg-[#f77e68] text-white text-3xl rounded-full h-20 w-20 flex items-center justify-center shadow-md">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-10 w-10"
