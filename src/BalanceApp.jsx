@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 const BalanceApp = () => {
   const [amount, setAmount] = useState("0");
   const [isLoading, setIsLoading] = useState(false);
+  const [frozenTime, setFrozenTime] = useState(""); // State to hold frozen time
   const navigate = useNavigate();
 
   const handlePress = (value) => {
@@ -24,10 +25,25 @@ const BalanceApp = () => {
 
   const handleSend = () => {
     if (amount !== "0") {
+      // Freeze the current time
+      const now = new Date();
+      const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+        timeZone: "Asia/Karachi",
+      };
+      setFrozenTime(now.toLocaleString("en-PK", options));
+
       setIsLoading(true);
       setTimeout(() => {
         setIsLoading(false);
-        navigate("/receipt", { state: { amount } });
+        navigate("/receipt", {
+          state: { amount, frozenTime: now.toLocaleString("en-PK", options) },
+        });
       }, 3000);
     }
   };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Raast from "../src/assets/Raast.jpg";
 import { X } from "lucide-react";
@@ -6,39 +6,7 @@ import { X } from "lucide-react";
 const PaymentReceipt = () => {
   const navigate = useNavigate(); // React Router hook for navigation
   const { state } = useLocation();
-  const { amount } = state || { amount: "0" };
-
-  const [currentDateTime, setCurrentDateTime] = useState("");
-  const [isTransitioning, setIsTransitioning] = useState(true);
-
-  useEffect(() => {
-    const updateDateTime = () => {
-      const now = new Date();
-      const options = {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: true,
-        timeZone: "Asia/Karachi",
-      };
-      setCurrentDateTime(now.toLocaleString("en-PK", options));
-    };
-
-    updateDateTime();
-    const interval = setInterval(updateDateTime, 60000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsTransitioning(false); // Stop the transition after 2 seconds
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const { amount, frozenTime } = state || { amount: "0", frozenTime: "N/A" };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-evenly bg-[#f6fbf9]">
@@ -62,11 +30,7 @@ const PaymentReceipt = () => {
       {/* Receipt Card */}
       <div className="w-[80%] h-[450px] bg-white rounded-2xl p-6 z-10 shadow-lg relative">
         {/* Status Icon */}
-        <div
-          className={`absolute -top-6 left-1/2 transform -translate-x-1/2 transition-transform  ${
-            isTransitioning ? "translate-y-4" : "translate-y-0"
-          }`}
-        >
+        <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
           <div className="bg-[#f77e68] text-white text-3xl rounded-full h-20 w-20 flex items-center justify-center shadow-md">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +53,7 @@ const PaymentReceipt = () => {
         <div className="text-center mt-12">
           <h1 className="text-3xl font-bold text-[#172b4d]">Rs. {amount}</h1>
           <p className="text-sm mt-2">
-            Umer Akbar to <p className="font-semibold">Abdul Rashid</p>
+            Amjad Hayat to <p className="font-semibold">Abdul Rashid</p>
           </p>
           <p className="text-xs text-[#7a869a] mt-2 flex items-center justify-center">
             Powered by
@@ -100,15 +64,15 @@ const PaymentReceipt = () => {
         <div className="text-[#172b4d] text-sm mt-4">
           <p className="mb-2">
             <p className="font-medium text-[#7a869a]">Date & Time (PKT):</p>{" "}
-            {currentDateTime}
+            {frozenTime}
           </p>
           <p className="mb-2">
             <p className="font-medium text-[#7a869a]">Receiver's Account:</p>{" "}
-            Mobilink Microfinance Bank (MMBL) *5426
+            HBL *8303
           </p>
           <p className="mb-2">
             <p className="font-medium text-[#7a869a]">Reference Number:</p>{" "}
-            Raast-512271
+            Raast-978560
           </p>
         </div>
       </div>
