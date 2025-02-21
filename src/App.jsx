@@ -3,17 +3,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import BalanceApp from "./BalanceApp";
 import PaymentReceipt from "./PaymentReceipt";
+import Paymentsname from "./Paymentsname";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Route to the Dashboard */}
         <Route path="/" element={<Dashboard />} />
-        {/* Route to BalanceApp */}
         <Route path="/balance" element={<BalanceApp />} />
-        {/* Route to PaymentReceipt */}
-        <Route path="/receipt" element={<PaymentReceipt />} />
+        <Route path="/payments" element={<Paymentsname />} />
+        <Route path="/payment-receipt" element={<PaymentReceipt />} />
       </Routes>
     </Router>
   );

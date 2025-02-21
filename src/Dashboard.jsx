@@ -25,10 +25,7 @@ const Dashboard = () => {
             <h1 className="text-3xl font-bold mt-2">Rs. 6,017</h1>
           </div>
           <div className="flex justify-between items-center mt-4">
-            <div
-             
-              className="h-6"
-            />
+            <div className="h-6" />
             <button className="text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +71,7 @@ const Dashboard = () => {
             className="bg-[#f77e68] rounded-2xl p-4 shadow-md text-white flex items-center justify-between"
             onClick={() => navigate("/balance")}
           >
-            <p className="text-lg font-semibold">Send & Request</p>
+            <p className="text-lg font-semibold">Send & <br/> Request</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -96,7 +93,7 @@ const Dashboard = () => {
       {/* Transactions Section */}
       <div
         className="bg-white rounded-2xl p-4 shadow-md mt-6"
-        onClick={() => navigate("/receipt", { state: { transaction } })}
+        onClick={() => navigate("/payment-receipt", { state: { transaction } })}
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-bold text-[#172b4d]">Transactions</h2>

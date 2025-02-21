@@ -4,9 +4,16 @@ import Raast from "../src/assets/Raast.jpg";
 import { X } from "lucide-react";
 
 const PaymentReceipt = () => {
-  const navigate = useNavigate(); // React Router hook for navigation
+  const navigate = useNavigate();
   const { state } = useLocation();
-  const { amount, frozenTime } = state || { amount: "0", frozenTime: "N/A" };
+
+  // Destructure data from state
+  const { amount, frozenTime, recipientName, recipientBank } = state || {
+    amount: "0",
+    frozenTime: "N/A",
+    recipientName: "N/A",
+    recipientBank: "N/A",
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-evenly bg-[#f6fbf9]">
@@ -53,7 +60,8 @@ const PaymentReceipt = () => {
         <div className="text-center mt-12">
           <h1 className="text-3xl font-bold text-[#172b4d]">Rs. {amount}</h1>
           <p className="text-sm mt-2">
-            Amjad Hayat to <p className="font-semibold">Abdul Rashid</p>
+            Amjad Hayat to{" "}
+            <p className="font-semibold">{recipientName}</p>
           </p>
           <p className="text-xs text-[#7a869a] mt-2 flex items-center justify-center">
             Powered by
@@ -68,7 +76,7 @@ const PaymentReceipt = () => {
           </p>
           <p className="mb-2">
             <p className="font-medium text-[#7a869a]">Receiver's Account:</p>{" "}
-            HBL *8303
+            {recipientBank}
           </p>
           <p className="mb-2">
             <p className="font-medium text-[#7a869a]">Reference Number:</p>{" "}
@@ -80,7 +88,7 @@ const PaymentReceipt = () => {
       {/* Close Button */}
       <div className="mt-6 flex">
         <button
-          onClick={() => navigate("/")} // Navigate to Dashboard
+          onClick={() => navigate("/")}
           className="w-80 p-4 flex bg-[#f77e68] text-white items-center justify-between mx-4 rounded-lg text-lg font-bold"
         >
           Close
