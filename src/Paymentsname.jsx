@@ -7,7 +7,9 @@ const Paymentsname = () => {
   const { amount, frozenTime } = state || { amount: "0", frozenTime: "N/A" };
 
   const handleRecipientClick = (name, bank) => {
-    navigate("/payment-receipt", { state: { recipientName: name, recipientBank: bank, amount, frozenTime } });
+    navigate("/payment-receipt", {
+      state: { recipientName: name, recipientBank: bank, amount, frozenTime },
+    });
   };
 
   return (
@@ -47,8 +49,8 @@ const Paymentsname = () => {
             onClick={handleRecipientClick}
           />
           <Recipient
-            name="HAZRATULLAH"
-            bank="Mobilink Microfinance Bank (MMBL) *8212"
+            name="REHMAT SHAH"
+            bank="Telenor Microfinance Bank (TMB) *6734"
             onClick={handleRecipientClick}
           />
           <Recipient
