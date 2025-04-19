@@ -59,8 +59,8 @@ const Paymentsname = () => {
             onClick={handleRecipientClick}
           />
           <Recipient
-            name="MUHAMMAD UMAR FAROOQ"
-            bank="Telenor Microfinance Bank (TMB) *7786"
+            name="CAFE GARDEN COLD CORNER"
+            bank="Meezan Bank (MBL) *1376"
             onClick={handleRecipientClick}
           />
         </div>
