@@ -63,6 +63,16 @@ const Paymentsname = () => {
             bank="Meezan Bank (MBL) *1376"
             onClick={handleRecipientClick}
           />
+          <Recipient
+            name="MUEIN UL DIN"
+            bank="Mobilink Microfinance Bank (MMBL) *0479"
+            onClick={handleRecipientClick}
+          />
+          <Recipient
+            name="MOEEM UDDIN"
+            bank="Telenor Microfinance Bank (TMB) *3863"
+            onClick={handleRecipientClick}
+          />
         </div>
       </div>
     </div>
