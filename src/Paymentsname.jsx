@@ -78,6 +78,11 @@ const Paymentsname = () => {
             bank="Mobilink Microfinance Bank (MMBL) *8328"
             onClick={handleRecipientClick}
           />
+          <Recipient
+            name="MUHAMMAD AA"
+            bank="HBL *1503"
+            onClick={handleRecipientClick}
+          />
         </div>
       </div>
     </div>
