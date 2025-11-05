@@ -54,8 +54,8 @@ const Paymentsname = () => {
             onClick={handleRecipientClick}
           />
           <Recipient
-            name="Akhtar lqbal"
-            bank="NayaPay*6669"
+            name="ABDUL RASHEED"
+            bank="Telenor Microfinance Bank (TMB) *4530"
             onClick={handleRecipientClick}
           />
           <Recipient
