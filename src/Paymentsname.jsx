@@ -55,6 +55,11 @@ const Paymentsname = () => {
           />
           <Recipient
             name="ABDUL RASHEED"
+            bank="United Bank Limited (UBL) *9981"
+            onClick={handleRecipientClick}
+          />
+          <Recipient
+            name="ABDUL RASHEED"
             bank="Telenor Microfinance Bank (TMB) *4530"
             onClick={handleRecipientClick}
           />
