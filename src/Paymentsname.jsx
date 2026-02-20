@@ -1,119 +1,144 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import Raast from "../src/assets/Raast.jpg";
+import { X } from "lucide-react";
 
-const Paymentsname = () => {
+const PaymentReceipt = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const { amount, frozenTime } = state || { amount: "0", frozenTime: "N/A" };
 
-  const handleRecipientClick = (name, bank) => {
-    navigate("/payment-receipt", {
-      state: { recipientName: name, recipientBank: bank, amount, frozenTime },
-    });
+  const { amount, frozenTime, recipientName, recipientBank } = state || {
+    amount: "0",
+    frozenTime: "N/A",
+    recipientName: "N/A",
+    recipientBank: "N/A",
   };
 
+  // 🔊 Play Success Sound on Load
+  useEffect(() => {
+    const audio = new Audio(
+      "https://www.soundjay.com/buttons/sounds/button-3.mp3"
+    );
+    audio.play();
+  }, []);
+
   return (
-    <div className="p-4 bg-gray-100 min-h-screen">
-      <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-lg font-semibold text-gray-700 mb-4">Get help</h2>
-        <h2 className="text-lg font-semibold text-gray-700 mb-4">Send money</h2>
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Enter IBAN, Raast ID, account or name
-          </label>
-          <input
-            type="text"
-            className="w-full p-2 border border-gray-300 rounded-md"
-            placeholder="PK19SADA00000311XXXXXXX"
+    <div className="min-h-screen flex flex-col items-center justify-evenly bg-[#f6fbf9] animate-fadeIn">
+      
+      {/* Header */}
+      <div className="flex">
+        <div className="flex items-center ml-12">
+          <img
+            src="https://images.sftcdn.net/images/t_app-icon-m/p/c1ee60d5-102a-4162-aa1d-9acf3633c849/2641861057/sadapay-logo"
+            alt="SadaPay Logo"
+            className="h-16"
           />
+          <div className="font-bold text-[#0b4861] font-sans">
+            SADA<span className="text-[#38597e]">PAY</span>
+          </div>
         </div>
-        <div className="space-y-4">
-          <Recipient
-            name="MUHAMMAD JAVAID"
-            bank="Telenor Microfinance Bank (TMB) *9918"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="MUHAMMAD ASIF"
-            bank="Telenor Microfinance Bank (TMB) *5885"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="ABDUL RASHID"
-            bank="HBL*8303"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="NAZEER ANJUM SHAHEEN"
-            bank="Telenor Microfinance Bank (TMB) *5082"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="REHMAT SHAH"
-            bank="Telenor Microfinance Bank (TMB) *6734"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="ABDUL RASHEED"
-            bank="United Bank Limited (UBL) *9981"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="ABDUL RASHEED"
-            bank="Telenor Microfinance Bank (TMB) *4530"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="CAFE GARDEN COLD CORNER"
-            bank="Meezan Bank (MBL) *1376"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="MUEIN UL DIN"
-            bank="Mobilink Microfinance Bank (MMBL) *0479"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="ABDUR RASHEED"
-            bank="Mobilink Microfinance Bank (MMBL) *5426"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="MOEEM UDDIN"
-            bank="Telenor Microfinance Bank (TMB) *3863"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="Quatta Chay Khana 2"
-            bank="Mobilink Microfinance Bank (MMBL) *8328"
-            onClick={handleRecipientClick}
-          />
-          <Recipient
-            name="MUHAMMAD AA"
-            bank="HBL *1503"
-            onClick={handleRecipientClick}
-          />
+        <button className="text-[#f77e68] font-medium text-sm ml-12">
+          Share
+        </button>
+      </div>
+
+      {/* Receipt Card */}
+      <div className="w-[80%] h-[450px] bg-white rounded-2xl p-6 z-10 shadow-lg relative animate-scaleUp">
+        
+        {/* Animated Status Icon */}
+        <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
+          <div className="bg-[#f77e68] text-white text-3xl rounded-full h-20 w-20 flex items-center justify-center shadow-md animate-bounce">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-10 w-10"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+        </div>
+
+        {/* Payment Details */}
+        <div className="text-center mt-12">
+          <h1 className="text-3xl font-bold text-[#172b4d] animate-pulse">
+            Rs. {amount}
+          </h1>
+          <p className="text-sm mt-2">
+            Amjad Hayat to{" "}
+            <span className="font-semibold">{recipientName}</span>
+          </p>
+          <p className="text-xs text-[#7a869a] mt-2 flex items-center justify-center">
+            Powered by
+            <img src={Raast} alt="Raast Logo" className="h-6 ml-1" />
+          </p>
+        </div>
+
+        <div className="text-[#172b4d] text-sm mt-4">
+          <p className="mb-2">
+            <span className="font-medium text-[#7a869a]">
+              Date & Time (PKT):
+            </span>{" "}
+            {frozenTime}
+          </p>
+          <p className="mb-2">
+            <span className="font-medium text-[#7a869a]">
+              Receiver's Account:
+            </span>{" "}
+            {recipientBank}
+          </p>
+          <p className="mb-2">
+            <span className="font-medium text-[#7a869a]">
+              Reference Number:
+            </span>{" "}
+            Raast-978560
+          </p>
         </div>
       </div>
+
+      {/* Close Button */}
+      <div className="mt-6 flex">
+        <button
+          onClick={() => navigate("/")}
+          className="w-80 p-4 flex bg-[#f77e68] text-white items-center justify-between mx-4 rounded-lg text-lg font-bold hover:scale-105 transition"
+        >
+          Close
+          <span className="ml-24">
+            <X className="font-semibold text-lg" />
+          </span>
+        </button>
+      </div>
+
+      {/* Custom Animations */}
+      <style>
+        {`
+          .animate-fadeIn {
+            animation: fadeIn 0.6s ease-in-out;
+          }
+
+          .animate-scaleUp {
+            animation: scaleUp 0.5s ease-in-out;
+          }
+
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+
+          @keyframes scaleUp {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+          }
+        `}
+      </style>
     </div>
   );
 };
 
-const Recipient = ({ name, bank, onClick }) => {
-  return (
-    <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-      <div>
-        <p className="text-sm font-medium text-gray-700">{name}</p>
-        <p className="text-xs text-gray-500">{bank}</p>
-      </div>
-      <button
-        className="text-sm text-blue-600 hover:text-blue-800"
-        onClick={() => onClick(name, bank)}
-      >
-        Send
-      </button>
-    </div>
-  );
-};
-
-export default Paymentsname;
+export default PaymentReceipt;
