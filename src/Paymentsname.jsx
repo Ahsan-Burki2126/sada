@@ -38,6 +38,12 @@ const Paymentsname = () => {
       )}
 
       <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
+        <h2 className="text-lg font-semibold text-gray-700 mb-4">Get help</h2> 
+        <h2 className="text-lg font-semibold text-gray-700 mb-4">Send money</h2> 
+        <div className="mb-6">
+        <label className="block text-sm font-medium text-gray-700 mb-2"> Enter IBAN, Raast ID, account or name </label> 
+        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" placeholder="PK19SADA00000311XXXXXXX" /> 
+        </div>
         <h2 className="text-lg font-semibold text-gray-700 mb-4">
           Send money
         </h2>
