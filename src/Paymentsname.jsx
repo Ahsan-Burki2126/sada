@@ -57,8 +57,9 @@ const Paymentsname = () => {
         </h2>
 
         <div className="space-y-4">
-          <Recipient name="MUHAMMAD JAVAID" bank="Telenor Microfinance Bank (TMB) *9918" onClick={handleRecipientClick} />
+          <Recipient name="HAQ NAWAZ" bank="Telenor Microfinance Bank (TMB) *7482" onClick={handleRecipientClick} />
           <Recipient name="MUHAMMAD ASIF" bank="Telenor Microfinance Bank (TMB) *5885" onClick={handleRecipientClick} />
+          <Recipient name="MUHAMMAD JAVAID" bank="Telenor Microfinance Bank (TMB) *9918" onClick={handleRecipientClick} />
           <Recipient name="ABDUL RASHID" bank="HBL *8303" onClick={handleRecipientClick} />
           <Recipient name="NAZEER ANJUM SHAHEEN" bank="Telenor Microfinance Bank (TMB) *5082" onClick={handleRecipientClick} />
           <Recipient name="REHMAT SHAH" bank="Telenor Microfinance Bank (TMB) *6734" onClick={handleRecipientClick} />
